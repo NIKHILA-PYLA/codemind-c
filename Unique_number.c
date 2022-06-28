@@ -1,22 +1,50 @@
-    #include<stdio.h>
-    #include<string.h>
-    int main()
+#include<stdio.h>
+int main()
+{
+    int a;
+    scanf("%d",&a);
+    int c=0,b,i,j,temp,flag=0;
+    temp=a;
+    while(temp>0)
     {
-        int i=0,j=0,t=0;
-        char a[10];
-        scanf("%[^
-]s",a);
-        for(j=0;j<strlen(a);j++)
+        b=temp%10;
+        c+=1;
+        temp=temp/10;
+    }
+    int arr[c];
+    temp=a;
+    for(i=0;i<c;i++)
+    {
+        b=temp%10;
+        arr[i]=b;
+        temp=temp/10;
+    }
+    for(i=0;i<c;i++)
+    {
+        for(j=0;j<c;j++)
         {
-            for(i=0;i<strlen(a);i++)
+            if(i!=j)
             {
-                if(a[i]==a[j])
-                t++;
+                if(arr[i]==arr[j])
+                {
+                    flag=1;
+                    break;
+                }
             }
         }
-        if(t>strlen(a))
-        printf("Not Unique Number");
-        else
-        printf("Unique Number");
-        return 0;
+        if(flag==1)
+        {
+            break;
+        }
     }
+    if(flag==1)
+    {
+        printf("Not Unique Number");
+        
+    }
+    else
+    {
+        printf("Unique Number");
+    }
+    return 0;
+}

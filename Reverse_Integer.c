@@ -1,30 +1,28 @@
-
 #include<stdio.h>
 int main()
 {
-    int i,a,s=0,t;
+    int a;
     scanf("%d",&a);
-    t=a;
-    if(a>=0)
-    {while(a!=0)
-        {
-        i=a%10;
-        a/=10;
-        s=i+s*10;
-        }
+    int flag=0;
+    if(a<0)
+    {
+        flag=1;
+        a*=-1;
     }
-    else{
-        a=(-a);
-        while(a!=0)
-        {
-        i=a%10;
-        a/=10;
-        s=i+s*10;
-        }
+    int rev=0,r;
+    while(a>0)
+    {
+        r=a%10;
+        rev=(rev*10)+r;
+        a=a/10;
     }
-    if(t>=0)
-    printf("%d",s);
+    if(flag==1)
+    {
+        printf("%d",rev*-1);
+    }
     else
-    printf("%d",-s);
+    {
+        printf("%d",rev);
+    }
     return 0;
 }

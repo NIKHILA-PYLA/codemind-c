@@ -1,39 +1,54 @@
 #include<stdio.h>
-int minprime(int n)
+int prime(int num)
 {
-    int i=1,j=1,count=0;
-    while(n>0)
-    {count=0;
-        for(j=1;j<=n;j++)
+    int c=0,i;
+    for (i=1; i<=num; i++)
+    {
+        if (num%i==0)
         {
-        if(n%j==0)
-        count++;
+            c++;
         }
-        if(count==2)
-        break;n--;
     }
-    return n;
-}
-int maxprime(int n)
-{
-   int i=1,j=1,count=0;
-    while(1)
-    {count=0;
-        for(j=1;j<=n;j++)
-        {
-        if(n%j==0)
-        count++;
-        }
-        if(count==2)
-        break;n++;
+    if (c<=2)
+    {
+        return 1;
     }
-    return n;
+    return 0;
 }
 int main()
 {
-    int a,t,y;
+    int a;
     scanf("%d",&a);
-    t=(maxprime(a)-a)<(a-minprime(a))?(maxprime(a)-a):(a-minprime(a));
-    printf("%d",t);
+    int l,f,dl,df,i;
+    for (i=a; i>=0; i--)
+    {
+        if (prime(i)==1)
+        {
+            f=i;
+            df=a-i;
+            break;
+        }
+    }
+    for (i=a; i<=10000; i++)
+    {
+        if (prime(i)==1)
+        {
+            l=i;
+            dl=i-a;
+            break;
+        }
+    }
+    if (df==dl)
+    {
+        printf("%d",dl);
+    }
+    else if (df>dl)
+    {
+        printf("%d",dl);
+    }
+    else
+    {
+        printf("%d",df);
+    }
     return 0;
 }

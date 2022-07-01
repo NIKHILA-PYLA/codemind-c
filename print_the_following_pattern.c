@@ -1,22 +1,19 @@
 #include<stdio.h>
-int main()
-{
-    int a,i,j;
+int main(){
+    int a;
     scanf("%d",&a);
-    for (j=a; j>=1; j--)
-    {
-        for (i=1; i<=j; i++)
-        {
-            printf("%d",i);
+    int i,j;
+    for (i=1; i<=a; i++){
+        for (j=1; j<=a; j++){
+            if (i==j || j==1|| i==a){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
         }
-        if (j==1)
-        {
-            break;
-        }
-        else
-        {
-            printf("
+        printf("
 ");
-        }
     }
+    return 0;
 }

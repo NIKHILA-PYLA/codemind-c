@@ -1,23 +1,17 @@
 #include<stdio.h>
-int main()
-{
+int main(){
     int a;
     scanf("%d",&a);
     int i,j;
-    if (a>=1 && a<=10000)
-    {
-        for (i=1; i<=a; i++)
-        {
-            for (j=a; j>=1; j--)
-            {
-                printf("%d ",j);
-                if (j==1)
-                {
-                    printf("
-");
-                }
-            }
+    for (i=0; i<a; i++){
+        for (j=1; j<a-1; j++){
+            printf("%d",j);
         }
+        for (j=a-3; j>=1; j--){
+            printf("%d",j);
+        }
+        printf("
+");
     }
     return 0;
 }
